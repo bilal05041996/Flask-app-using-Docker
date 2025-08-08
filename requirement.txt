@@ -1,0 +1,5 @@
+#2.3.2 is the version of the Flask
+#We are mentioning the version to ensure the same version should be run from everywhere. Also newer version might break your code.
+#Pip stand for Pip Install Packages. It is the official package manager for Python. You use pip to install, upgrade and manage Pyhton libraries or packages from the Python index (PyPI).
+
+Flask==2.3.2
