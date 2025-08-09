@@ -82,3 +82,23 @@ docker-compose logs -f <service_name>
 
 Here, -f means show the logs until I press Ctrl C
 ******
+
+******
+
+What you should edit in your previous code
+Your current app.py already has /, /about, /status routes.
+You can add this new /log route to track visits.
+Here’s your updated app.py:
+
+@app.route('/log')
+def log_route():
+    with open("access.log", "a") as f:
+        f.write("User visited /log route\n")
+    return "Log recorded!"
+
+Check the log inside the container:
+
+docker exec -it <container_id> cat access.log
+
+
+******
