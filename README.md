@@ -42,3 +42,43 @@ Navigate to: http://localhost:5000
 You should see:
 
 Hello from Dockerized Flask App!
+
+******
+Here, for docker compose concept just refer app.py and I have done changes
+
+---app.py---
+Here, os.environ.get('WELCOME_MSG', 'Default message')
+means if WELCOME_MSG is not set, it will show "Default message".
+
+This is important because now Docker Compose can pass that variable.
+
+Your project folder should have:
+
+docker-flask-app/
+├── app.py
+├── requirements.txt
+├── Dockerfile
+└── docker-compose.yml
+
+Build & start with Docker Compose
+From inside the folder where docker-compose.yml is located:
+
+docker-compose up --build
+--build ensures it rebuilds the image with the latest changes.
+
+This will start the container and show logs in your terminal.
+
+Access your app in your browser
+
+Stop the container using
+
+docker-compose down
+
+If you want the container to run in the background:
+docker-compose up -d --build
+
+Then check logs anytime:
+docker-compose logs -f <service_name>
+
+Here, -f means show the logs until I press Ctrl C
+******

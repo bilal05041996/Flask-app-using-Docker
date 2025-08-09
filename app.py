@@ -3,11 +3,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# Read environment variable, set default if not provided
-MESSAGE = os.getenv("WELCOME_MSG", "Hello from Dockerized Flask App!")
-
 @app.route('/')
 def home():
+    MESSAGE = os.environ.get('WELCOME_MSG', 'Default message')
     return MESSAGE
 
 @app.route('/about')
