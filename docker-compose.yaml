@@ -5,6 +5,6 @@ services:
     build: .
     ports:
       - "5000:5000"
-    environment:
-      - WELCOME_MSG=Welcome from Docker Compose!
+    volumes:
+      - ./logs:/app/logs
 

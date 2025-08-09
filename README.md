@@ -100,5 +100,37 @@ Check the log inside the container:
 
 docker exec -it <container_id> cat access.log
 
+******
 
 ******
+Bind Volumes (Access logs on your host):
+volumes: →
+./logs is the folder on your host (relative to docker-compose.yml).
+/app/logs is the folder inside the container where the Flask app writes logs.
+
+This means anything your app writes to /app/logs will instantly be available in ./logs on your host.
+
+*****
+
+*****
+# 🐳 Flask App with Docker Volume Binding (Logs on Host)
+
+This project demonstrates how to **bind mount a volume** in Docker so that logs generated inside a container are stored on your **host machine**.
+
+---
+
+## 📂 Project Structure
+docker-flask-app/
+├── app.py # Flask application
+├── requirements.txt # Python dependencies
+├── Dockerfile # Image build instructions
+├── docker-compose.yml # Compose config with volume bind
+└── logs/ # Logs will be saved here (created automatically)
+
+## ⚙️ How It Works
+
+- Flask app writes logs to `/app/logs/access.log` inside the container.
+- Docker Compose binds the **host folder** `./logs` to `/app/logs` inside the container.
+- Any file created in `/app/logs` inside the container appears in the host's `logs` folder.
+
+*****
