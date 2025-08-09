@@ -42,3 +42,52 @@ Navigate to: http://localhost:5000
 You should see:
 
 Hello from Dockerized Flask App!
+
+# 🚀 Publish Docker Image to Docker Hub
+
+This section explains how to **push your local Docker image** to Docker Hub, so you can share it with others or deploy it anywhere.
+
+---
+
+## 🔑 Prerequisites
+
+- A free account on [Docker Hub](https://hub.docker.com/)
+- Docker installed locally
+- Your Docker image already built (see previous steps)
+
+---
+
+## 🛠 Steps to Push Your Image
+
+### 1. Log in to Docker Hub from terminal
+
+docker login
+
+Enter your Docker Hub username and password when prompted.
+
+2. Check your local images
+
+docker images
+
+3. Tag your image with your Docker Hub username
+Replace yourusername with your actual Docker Hub username.
+
+docker tag flask-docker-app yourusername/flask-docker-app
+
+4. Push the tagged image to Docker Hub
+
+docker push yourusername/flask-docker-app
+
+5. Verify your image on Docker Hub
+Go to:
+
+https://hub.docker.com/repository/docker/yourusername/flask-docker-app
+
+You should see your uploaded image listed with its tags.
+
+🔄 How to Use Your Published Image
+Others (or you) can now pull and run your image anywhere with:
+
+docker pull yourusername/flask-docker-app
+docker run -p 5000:5000 yourusername/flask-docker-app
+
